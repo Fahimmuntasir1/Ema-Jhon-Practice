@@ -1,17 +1,16 @@
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import useProducts from "../../hooks/UseProducts";
 import { addToDb, getStoredData } from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import "./Shop.css";
 
 const Shop = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useProducts();
   const [cart, setCart] = useState([]);
-  useEffect(() => {
-    fetch("products.json")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
 
   useEffect(() => {
     const storedCart = getStoredData();
@@ -36,7 +35,7 @@ const Shop = () => {
     } else {
       const rest = cart.filter((product) => product.id !== selectedProduct.id);
       exists.quantity = exists.quantity + 1;
-      newCart=[...rest,exists]
+      newCart = [...rest, exists];
     }
     setCart(newCart);
     addToDb(selectedProduct.id);
@@ -53,7 +52,17 @@ const Shop = () => {
         ))}
       </div>
       <div className="cart-container">
-        <Cart cart={cart}></Cart>
+        <Cart cart={cart}>
+          <div className="review-btn">
+          <Link to="/order">
+            {" "}
+            <button>
+              Review Orders{" "}
+              <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
+            </button>{" "}
+          </Link>
+          </div>
+        </Cart>
       </div>
     </div>
   );
