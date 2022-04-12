@@ -33,10 +33,10 @@ const Order = () => {
       <div className="cart-container">
         <Cart cart={cart}>
           <div className="checkout-btn">
-            <Link to="/order">
+            <Link to="/shipment">
               {" "}
               <button>
-                Proceed Checkout{" "}
+                Proceed SHipping{" "}
                 <FontAwesomeIcon icon={faCreditCard}></FontAwesomeIcon>
               </button>{" "}
             </Link>

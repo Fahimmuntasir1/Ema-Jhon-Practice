@@ -42,6 +42,7 @@ if (user) {
     createUserWithEmailAndPassword(email, password);
   };
 
+  
   return (
     <div className="login-container">
       <h2 className="login-title">Sign Up</h2>

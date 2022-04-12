@@ -9,6 +9,7 @@ import Order from "./components/Order/Order";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
 import Shop from "./components/Shop/Shop";
 import SignUp from "./components/SignUp/SignUp";
+import Shipment from "./components/Shipment/Shipment";
 
 function App() {
   return (
@@ -29,6 +30,14 @@ function App() {
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/login" element={<LogIn />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
+        <Route
+          path="/shipment"
+          element={
+            <RequireAuth>
+              <Shipment />
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="/*" element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>

@@ -54,13 +54,13 @@ const Shop = () => {
       <div className="cart-container">
         <Cart cart={cart}>
           <div className="review-btn">
-          <Link to="/order">
-            {" "}
-            <button>
-              Review Orders{" "}
-              <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
-            </button>{" "}
-          </Link>
+            <Link to="/order">
+              {" "}
+              <button>
+                Review Orders{" "}
+                <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
+              </button>{" "}
+            </Link>
           </div>
         </Cart>
       </div>
